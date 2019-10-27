@@ -38,6 +38,7 @@ class Solution:
     def is_not_used(self):
         pass
 
+
 # let's write some test cases
 sol = Solution()
 a_str = 'A man, a plan, a canal: Panama'
