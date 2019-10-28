@@ -30,7 +30,7 @@ class Solution:
             right += 1
         return s[left + 1:right]
 
-    def longest_palindrome_M(self, s):
+    def longest_palindrome_Manacher(self, s):
         s_M = ''
         # normally, operations to a string does not change the string value,
         # have to assign returned value to another variable
