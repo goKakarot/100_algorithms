@@ -21,14 +21,13 @@ class Solution:
     def hashCode(self, key, HASH_SIZE):
         ans = 0
         for c in key:
-            ans = ans * 33 + ord(c)
+            ans = (ans * 33 + ord(c)) % HASH_SIZE
 
-        hash_value = ans % HASH_SIZE
-        return hash_value
+        return ans
 
 
 # write some test cases
 sol = Solution()
-test_string = 'abcd'
+test_string = 'abcdefg'
 print(sol.hashCode(test_string, 1000))
 
