@@ -1,3 +1,7 @@
+"""LintCode No.17 Subsets I
+
+"""
+
 class Solution:
     """
     @param nums: A set of numbers
