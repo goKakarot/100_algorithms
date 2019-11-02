@@ -20,9 +20,8 @@ class Solution:
     """
     def preorderTraversal(self, root):
         self.results = []
-        # self.traverse_recursive(root)
-        # return self.results
-        return self.traverse_non_recursive(root)
+        self.traverse_recursive(root)
+        return self.results
 
     def traverse_recursive(self, root):
         if root is None or not root:
@@ -33,7 +32,7 @@ class Solution:
 
     def traverse_non_recursive(self, root):
         if root is None or not root:
-            return []
+            return
         stack = [root]
         while stack:
             node = stack.pop()
@@ -42,5 +41,4 @@ class Solution:
                 stack.append(node.right)
             if node.left:
                 stack.append(node.left)
-        return self.results
 
