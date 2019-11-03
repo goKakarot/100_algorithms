@@ -12,6 +12,7 @@ e.g.,
 2. enumerate/lambda
 lambda: 省去为实际创建一个函数
 enumerate: 枚举list中的每一个元素并加上索引
+这一套组合用法可以在python中为list排序并加索引
 """
 
 
