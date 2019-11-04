@@ -16,6 +16,8 @@ class Solution:
 
         # '' or ' ' makes left >= right(e.g. 0 > -1 or 0 = 0), and return True
         while left < right:
+            # 改成两个while循环嵌套
+            # 逻辑更自然，减少后续代码的可能性
             if not s[left].isalnum():
                 left += 1
                 continue
