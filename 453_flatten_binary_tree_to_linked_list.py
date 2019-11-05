@@ -1,6 +1,12 @@
 """453 Flatten Binary Tree to Linked List
 
 Algorithm:
+1. 显然我们很难直接在数上操作达到in-place的flatten
+2. 使用递归
+3. 把right subtree挂到left subtree的最右边节点上，left subtree再挂到root的right上去。
+这样不停操作，就可以达到把树向右边flatten的目的。
+
+Note:
 分治：（返回最后一个节点）
 情况      操作  返回值
 左有右有  swap  right_last
