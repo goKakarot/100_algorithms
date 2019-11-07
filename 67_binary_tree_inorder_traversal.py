@@ -1,17 +1,19 @@
 """67. Binary Tree Inorder Traversal
-二叉树的中序遍历
 
-二叉树测试用例选用最简单的，不要想下面子树的情况怎么办，都是可以循环解决的
-
-只要有左子树就向下，保证左边永远是访问过的，这时只要处理是否有右子树：
-# 有右子树
-遍历右子树的所有左子树
-# 无右子树
-弹出栈
+Algorithm:
+1. 递归
+2. 迭代（需要掌握）
+iterative version可以看成是一个模版。即：
+从root开始，一直路向左，把遇到的left children全部压入stk。（left）
+每次从stk弹出一个左节点（current），然后指向其右节点，继续一路向左。(right)
+一直到stk为空
 
 Note:
-1. stack中只剩下root节点时的情况，stack[-1]数组越界
+traversal_non_recursive_simple()
+引入dummy_node只需一个while loop
 
+Complexity:
+O(n)
 """
 
 
@@ -33,45 +35,48 @@ class Solution:
         return self.results
 
     def traversal(self, root):
-        if root is None or not root:
+        if root is None:
             return
         self.traversal(root.left)
         self.results.append(root.val)
         self.traversal(root.right)
 
     def traversal_non_recursive(self, root):
-        if root is None or not root:
-            return []
-
+        result = []
         stack = []
+
         while root:
             stack.append(root)
             root = root.left
 
         while stack:
-            node = stack[-1]
-            self.results.append(node.val)
+            node = stack.pop()
+            result.append(node.val)
             if node.right:
                 node = node.right
                 while node:
                     stack.append(node)
                     node = node.left
-            else:
-                node = stack.pop()
-                # Note.1
-                while stack and stack[-1].right == node:
-                    node = stack.pop()
 
-        return self.results
+        return result
 
+    def traversal_non_recursive_simple(self, root):
+        result = []
+        stack = []
 
-# write some test cases
-root_node = TreeNode(1)
-left_node = TreeNode(2)
-right_node = TreeNode(3)
+        dummy_node = TreeNode(0)
+        dummy_node.right = root
+        stack.append(dummy_node)
 
-root_node.left, root_node.right = left_node, right_node
+        while stack:
+            node = stack.pop()
+            if node.right:
+                node = node.right
+                while node:
+                    stack.append(node)
+                    node = node.left
 
-sol = Solution()
-print(sol.inorderTraversal(root_node))
+            if stack:
+                result.append(stack[-1].val)
 
+        return result
