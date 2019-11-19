@@ -4,7 +4,7 @@ Algorithm:
 1. 和word-break i的思路是一样的，用DP来做
 
 Note:
-1. 参见注释
+1. 详见注释
 
 Complexity:
 O(n^2)
