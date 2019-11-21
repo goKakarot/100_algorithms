@@ -12,7 +12,7 @@ Note:
 整个加到结果中去
 
 Complexity:
-O(n) * (O(n) + O(m)) = O(n * n) + O(n * m) = O(n * m) or O(n * n)
+O(n) * (O(n) + O(m)) = O(n * n) + O(n * m) = O(n * m) or O(n * n) ???
 n = len(s)
 m = number of dict
 
