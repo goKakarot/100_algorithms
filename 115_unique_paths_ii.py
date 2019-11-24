@@ -33,7 +33,7 @@ dp[i][j] += dp[i-1][j] and dp[i][j] += dp[i][j-1]
 """
 
 
-class Solution_Opt:
+class SolutionOpt:
     """
     @param obstacleGrid: A list of lists of integers
     @return: An integer
